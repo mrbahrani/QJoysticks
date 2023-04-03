@@ -25,7 +25,7 @@
 
 #include <QObject>
 #include <QStringList>
-#include <QJoysticks/JoysticksCommon.h>
+#include "JoysticksCommon.h"
 
 class QSettings;
 class SDL_Joysticks;

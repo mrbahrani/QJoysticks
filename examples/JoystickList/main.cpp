@@ -20,13 +20,14 @@
  * THE SOFTWARE.
  */
 
-#include <QPalette>
-#include <QQmlContext>
-#include <QApplication>
-#include <QStyleFactory>
-#include <QQmlApplicationEngine>
+#include <QtQml/QQmlContext>
+
 
 #include <QJoysticks.h>
+#include <QtWidgets/QApplication>
+#include <QtQml/QQmlApplicationEngine>
+#include <QtGui/QPalette>
+#include <QtWidgets/QStyleFactory>
 
 #ifdef Q_OS_WIN
 #   ifdef main
@@ -72,20 +73,21 @@ int main(int argc, char *argv[])
    QJoysticks *instance = QJoysticks::getInstance();
 
    /* Enable the virtual joystick */
-   instance->setVirtualJoystickRange(1);
-   instance->setVirtualJoystickEnabled(true);
-   instance->setVirtualJoystickAxisSensibility(0.7);
-
+//   instance->setVirtualJoystickRange(1);
+//   instance->setVirtualJoystickEnabled(true);
+//   instance->setVirtualJoystickAxisSensibility(0.7);
+   qDebug(std::to_string(instance->inputDevices().count()).c_str());
    /*
     * Register the QJoysticks with the QML engine, so that the QML interface
     * can easilly use it.
     */
-   qmlEngine.rootContext()->setContextProperty("QJoysticks", instance);
-
-   /*
-    * Load main.qml and run the application.
-    */
-   qmlEngine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-
+//   while (1){}
+//   qmlEngine.rootContext()->setContextProperty("QJoysticks", instance);
+//
+//   /*
+//    * Load main.qml and run the application.
+//    */
+//   qmlEngine.load(QUrl(QStringLiteral("qrc:/main.qml")));
+//
    return app.exec();
 }
